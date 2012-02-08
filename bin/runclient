@@ -3,6 +3,6 @@
 $LOAD_PATH.unshift("./lib")
 require "client"
 
-c = Client.new "waterpoint.moo.mud.org", 8301
+c = Client.new "localhost", 2000
 c.connect
 c.run
