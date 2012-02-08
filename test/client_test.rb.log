@@ -1,0 +1,8 @@
+Loaded suite tork-worker[1] test/client_test
+Started
+......
+Finished in 0.003866 seconds.
+
+6 tests, 10 assertions, 0 failures, 0 errors, 0 skips
+
+Test run options: --seed 37675
