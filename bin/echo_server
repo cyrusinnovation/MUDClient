@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+require "socket"
+
+server = TCPServer.new 2000
+
+loop do
+  client = server.accept
+  client.puts "*** Hello!"
+  while line = client.gets
+    begin
+      client.puts "*** You said: #{line}"
+      line.chomp!
+      if line == "@quit"
+        client.puts "*** Goodbye!"
+        Process.exit 0
+      end
+    rescue Errno::EPIPE => e
+      STDERR.puts "*** Unexpected client disconnect."
+      Process.exit 1
+    end
+  end
+  client.close
+  STDERR.puts "*** Unexpected client disconnect."
+  Process.exit 1
+end
